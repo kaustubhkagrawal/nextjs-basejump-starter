@@ -1,12 +1,10 @@
-# Basejump Nextjs Starter
+# Basejump
 
-Adds a Nextjs starter app on top of [Basejump core](https://github.com/usebasejump/basejump). This is a complete interface with support for personal accounts, team accounts, invitations, managing members/permissions and subscription billing.
+Basejump adds personal accounts, team accounts, permissions and billing support to Supabase Auth.
 
 [Learn more at usebasejump.com](https://usebasejump.com). Ask questions [on X / Twitter](https://twitter.com/tiniscule)
 
-![Image Description](./public/images/basejump-team-page.png)
-
-## Basejump Core Features
+## Features
 
 - **Personal accounts**: Every user that signs up using Supabase auth automatically gets their own personal account.
   Billing on personal accounts can be enabled/disabled.
@@ -21,38 +19,56 @@ Adds a Nextjs starter app on top of [Basejump core](https://github.com/usebaseju
   at [database.dev/basejump/supabase_test_helpers](https://database.dev/basejump/supabase_test_helpers). You do not need
   to be using Basejump to use the testing tools.
 
-## Next Frontend Features
+<br/><br/>
 
-- **Basic Dashboard**: A basic dashboard implementation restricted to authenticated users
-- **User Authentication**: Support for email/password - but add any auth provider supported by Supabase
-- **Personal accounts**: Every user that signs up using Supabase auth automatically gets their own personal account.
-  Billing on personal accounts can be enabled/disabled.
-- **Team accounts**: Team accounts are billable accounts that can be shared by multiple users. Team accounts can be
-  disabled if you only wish to allow personal accounts. Billing on team accounts can also be disabled.
-- **Billing**: Basejump provides out of the box billing support for Stripe, but you can add your own providers easily.
-  If you do, please consider contributing them so others can benefit!
 
-## Quick Start
+# Quick Start
 
-1. Run `yarn install`
-2. Run `supabase start`
-3. Create a `.env.local` copy of the `.env.example` file with the correct values for Supabase
-4. Run `yarn dev`
+Check out the getting started guide at [usebasejump.com](https://usebasejump.com).
+<br/>
 
-When you're ready to work on billing, you'll need to set up a Stripe account and add your Stripe keys to your `supabase/functions/.env` file. There's an example file you can copy.
+## Optional Nextjs starter template
+We've got a fleshed out starter template ready to go for Basejump built using NextJs.  You can install it by running:
 
-## Helpful Links
+```bash
+yarn create next-app -e https://github.com/usebasejump/basejump-next
+```
 
-- [Basejump Docs](https://usebasejump.com/docs)
-- [Creating new protected tables](https://usebasejump.com/docs/example-schema)
-- [Testing your Supabase functions](https://usebasejump.com/docs/testing)
+Then add your Supabase URL and anon key to your `.env.local` file. There's an example in the `.env.example` file.
+
+> Note: create-next-app forces you to install the template into a nested directory. You can move the contents of the directory to the root of your project if you'd like.
+
+<br/><br/>
+
+## Running tests
+Basejump includes comprehensive pgtap testing for all included functionality - but it's not enabled by default in case that's not your jam. To run the tests, you'll need to add a few dependencies.
+
+#### Install pgtap
+
+```sql
+create extension pgtap with schema extensions;
+```
+
+#### Install dbdev
+Follow the directions at [database.dev](https://database.dev/supabase/dbdev) to install dbdev.
+
+#### Install supabase_test_helpers
+
+```sql
+select dbdev.install('basejump-supabase_test_helpers');
+```
+
+#### Run the tests
+```bash
+supabase test db
+```
+
+<br/><br/>
 
 ## Contributing
 
-Yes please! Please submit a PR with your changes to [the basejump-next github repo](https://github.com/usebasejump/basejump-next).
+Yes please! Please submit a PR with your changes to [the basejump github repo](https://github.com/usebasejump/basejump). Please make sure your changes are well tested and documented.
 
 You can contribute in the following places:
 - [Basejump core](https://github.com/usebasejump/basejump)
-- [Basejump Nextjs](https://github.com/usebasejump/basejump-next)
 - [Basejump edge functions / billing functions](https://github.com/usebasejump/basejump-deno-packages)
-- [Supabase Test Helpers](https://github.com/usebasejump/supabase-test-helpers)
