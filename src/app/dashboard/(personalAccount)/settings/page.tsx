@@ -1,4 +1,4 @@
-import EditPersonalAccountName from "@/components/basejump/edit-personal-account-name";
+import EditPersonalAccountName from "@/components/fragments/basejump/edit-personal-account-name";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function PersonalAccountSettingsPage() {

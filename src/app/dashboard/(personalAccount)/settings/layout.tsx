@@ -1,5 +1,5 @@
-import SettingsNavigation from "@/components/dashboard/settings-navigation";
-import DashboardTitle from "@/components/dashboard/dashboard-title";
+import SettingsNavigation from "@/components/fragments/dashboard/settings-navigation";
+import DashboardTitle from "@/components/fragments/dashboard/dashboard-title";
 import { Separator } from "@/components/ui/separator";
 
 export default function PersonalAccountSettingsPage({

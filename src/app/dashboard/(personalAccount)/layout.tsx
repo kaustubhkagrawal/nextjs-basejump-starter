@@ -1,4 +1,4 @@
-import DashboardHeader from "@/components/dashboard/dashboard-header";
+import DashboardHeader from "@/components/fragments/dashboard/dashboard-header";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function PersonalAccountDashboard({
